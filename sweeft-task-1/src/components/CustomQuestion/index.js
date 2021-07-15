@@ -28,7 +28,7 @@ function CustomQuestion(props) {
       <p>{props.value.question}</p>
       {answers.length &&
         answers.map((answer) => (
-          <li key={answer}>
+          <div key={answer}>
             {/* <label htmlFor={answer}> </label>
             <input
               type="radio"
@@ -40,7 +40,7 @@ function CustomQuestion(props) {
             > */}
             {answer}
             {/* </input> */}
-          </li>
+          </div>
         ))}
     </div>
   );
