@@ -21,7 +21,6 @@ function Main() {
       <form className={styles.form}>
         <label htmlFor="category">Select Category:</label>
         <select name="category" id="category">
-          <option value="any">Any</option>
           <option value="9">General Knowledge</option>
           <option value="10">Entertainment: Books</option>
           <option value="11">Entertainment: Film</option>
@@ -49,7 +48,6 @@ function Main() {
         </select>
         <label htmlFor="difficulty">Select Difficulty:</label>
         <select name="difficulty" id="difficulty">
-          <option value="any">Any</option>
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
           <option value="hard">Hard</option>

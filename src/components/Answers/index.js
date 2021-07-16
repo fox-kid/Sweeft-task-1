@@ -1,9 +1,10 @@
 import { useState } from "react";
+import styles from "./Answers.module.css";
 
 function Answers(props) {
   const [chosen, setChosen] = useState([]);
   return (
-    <div>
+    <div className={styles.answer_box}>
       <input
         type="radio"
         id={props.value}

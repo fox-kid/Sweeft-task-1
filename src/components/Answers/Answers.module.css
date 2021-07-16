@@ -1,0 +1,7 @@
+.answer_box {
+  margin: 0.5rem;
+}
+
+.answer_box label {
+  cursor: pointer;
+}
