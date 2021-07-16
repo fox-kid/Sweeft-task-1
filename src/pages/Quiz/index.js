@@ -67,8 +67,8 @@ function Quiz() {
               <div className={styles.modal}>
                 <div className={styles.modal_box}>
                   <p className={styles.modal_text}>
-                    Congratulations on finishing test! The number of questions
-                    you got correct is: {count}.
+                    Congratulations on finishing the test! The number of
+                    questions you got correct is: {count}.
                   </p>
                   <p className={styles.modal_text}>
                     You can take the quiz again.
