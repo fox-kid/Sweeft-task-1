@@ -9,6 +9,7 @@ function Quiz() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [quiz, setQuiz] = useState([]);
+  let count = 0;
 
   useEffect(() => {
     setLoading(true);
@@ -17,6 +18,25 @@ function Quiz() {
       .catch((e) => setError(e.message))
       .finally(() => setLoading(false));
   }, []);
+
+  let correctAnswers = [];
+  quiz.map((item) => correctAnswers.push(item.correct_answer));
+  console.log(correctAnswers);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const checkedAnswersList = document.querySelectorAll(
+      "input[type=radio]:checked"
+    );
+    const checkedAnswersArray = [...checkedAnswersList];
+    console.log(checkedAnswersArray);
+    for (let i = 0; i < checkedAnswersArray.length; i++) {
+      if (checkedAnswersArray[i].value == correctAnswers[i]) {
+        count++;
+      }
+    }
+    console.log(count);
+  }
 
   return (
     <div className={styles.container}>
@@ -29,7 +49,12 @@ function Quiz() {
             {quiz.map((question) => (
               <CustomQuestion key={question.question} value={question} />
             ))}
-            <button className={styles.btn_primary} type="submit">
+            <p>Please answer all the questions before submitting.</p>
+            <button
+              className={styles.btn_primary}
+              type="submit"
+              onClick={handleSubmit}
+            >
               Submit
             </button>
           </form>

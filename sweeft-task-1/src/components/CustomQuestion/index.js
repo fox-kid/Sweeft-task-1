@@ -17,13 +17,17 @@ function CustomQuestion(props) {
   }
 
   shuffleArray(answers);
-
   return (
     <div className={styles.question_box}>
       <p>{props.value.question}</p>
       {answers.length &&
         answers.map((answer) => (
-          <Answers key={answer} value={answer} name={props.value.question} />
+          <Answers
+            key={answer}
+            value={answer}
+            name={props.value.question}
+            correctAnswer={props.value.correct_answer}
+          />
         ))}
     </div>
   );

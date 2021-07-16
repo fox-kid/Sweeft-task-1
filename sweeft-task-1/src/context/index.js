@@ -6,6 +6,7 @@ const AppContext = createContext();
 function AppContextProvider({ children }) {
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
+  const [count, setCount] = useState([]);
 
   return (
     <AppContext.Provider
@@ -14,6 +15,8 @@ function AppContextProvider({ children }) {
         difficulty,
         setCategory,
         setDifficulty,
+        count,
+        setCount,
       }}
     >
       {children}

@@ -2,7 +2,6 @@ import { useState } from "react";
 
 function Answers(props) {
   const [chosen, setChosen] = useState([]);
-
   return (
     <div>
       <label htmlFor={props.value}> </label>
