@@ -3,13 +3,18 @@ import { getQuiz } from "../../api";
 import { useAppContext } from "../../context";
 import styles from "./Quiz.module.css";
 import CustomQuestion from "../../components/CustomQuestion";
+import Modal from "../../components/Modal";
+import ROUTES from "../../config/routes";
+import { Link } from "react-router-dom";
+let count = 0;
 
 function Quiz() {
   const { category, difficulty } = useAppContext();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [quiz, setQuiz] = useState([]);
-  let count = 0;
+
+  const [showModal, toggleModal] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -21,21 +26,20 @@ function Quiz() {
 
   let correctAnswers = [];
   quiz.map((item) => correctAnswers.push(item.correct_answer));
-  console.log(correctAnswers);
 
   function handleSubmit(e) {
     e.preventDefault();
+    toggleModal((prev) => !prev);
+
     const checkedAnswersList = document.querySelectorAll(
       "input[type=radio]:checked"
     );
     const checkedAnswersArray = [...checkedAnswersList];
-    console.log(checkedAnswersArray);
     for (let i = 0; i < checkedAnswersArray.length; i++) {
       if (checkedAnswersArray[i].value == correctAnswers[i]) {
         count++;
       }
     }
-    console.log(count);
   }
 
   return (
@@ -58,6 +62,24 @@ function Quiz() {
               Submit
             </button>
           </form>
+          {showModal && (
+            <Modal>
+              <div className={styles.modal}>
+                <div className={styles.modal_box}>
+                  <p className={styles.modal_text}>
+                    Congratulations on finishing test! The number of questions
+                    you got correct is: {count}.
+                  </p>
+                  <p className={styles.modal_text}>
+                    You can take the quiz again.
+                  </p>
+                  <Link to={ROUTES.ROUTE_MAIN}>
+                    <button className={styles.btn_primary}>Main page</button>
+                  </Link>
+                </div>
+              </div>
+            </Modal>
+          )}
         </>
       )}
     </div>
