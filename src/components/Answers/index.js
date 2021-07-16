@@ -4,7 +4,6 @@ function Answers(props) {
   const [chosen, setChosen] = useState([]);
   return (
     <div>
-      <label htmlFor={props.value}> </label>
       <input
         type="radio"
         id={props.value}
@@ -13,7 +12,7 @@ function Answers(props) {
         onChange={(e) => setChosen(e.target.value)}
         checked={chosen === props.value}
       />
-      {props.value}
+      <label htmlFor={props.value}>{props.value}</label>
     </div>
   );
 }
