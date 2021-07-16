@@ -1,0 +1,27 @@
+.container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  background-color: #e8dae5;
+  border-radius: 1rem;
+}
+
+
+.btn_primary {
+  font-size: 1rem;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  background-color: #f3cd5c;
+  color: #3f3052;
+  align-self: center;
+  box-shadow: 0px 2px 4px 1px #826613;
+  transition: 0.2s all;
+}
+
+.btn_primary:hover {
+  background-color: #dfae1b;
+  box-shadow: 0px 2px 4px 2px #826613;
+}

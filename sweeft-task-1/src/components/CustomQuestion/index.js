@@ -1,12 +1,7 @@
-// import { useState } from "react";
+import Answers from "../Answers";
+import styles from "./CustomQuestion.module.css";
 
 function CustomQuestion(props) {
-  //   const [correct, setCorrect] = useState([]);
-
-  //   const handleRadioChange = (e) => {
-  //     setCorrect(e.target.value);
-  //   };
-
   const answers = [];
   answers.push(props.value.correct_answer);
   props.value.incorrect_answers.map((incorrect_answer) =>
@@ -24,23 +19,11 @@ function CustomQuestion(props) {
   shuffleArray(answers);
 
   return (
-    <div>
+    <div className={styles.question_box}>
       <p>{props.value.question}</p>
       {answers.length &&
         answers.map((answer) => (
-          <div key={answer}>
-            {/* <label htmlFor={answer}> </label>
-            <input
-              type="radio"
-              id={answer}
-              name={answer}
-              value={answer === props.value.correct_answer}
-              onChange={handleRadioChange}
-              checked={false}
-            > */}
-            {answer}
-            {/* </input> */}
-          </div>
+          <Answers key={answer} value={answer} name={props.value.question} />
         ))}
     </div>
   );

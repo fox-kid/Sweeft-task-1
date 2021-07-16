@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getQuiz } from "../../api";
 import { useAppContext } from "../../context";
-
+import styles from "./Quiz.module.css";
 import CustomQuestion from "../../components/CustomQuestion";
 
 function Quiz() {
@@ -19,7 +19,7 @@ function Quiz() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.container}>
       {loading && <h1>Loading...</h1>}
       {error && <h1>error</h1>}
       {quiz.length && (
@@ -29,7 +29,9 @@ function Quiz() {
             {quiz.map((question) => (
               <CustomQuestion key={question.question} value={question} />
             ))}
-            <button type="submit">Submit</button>
+            <button className={styles.btn_primary} type="submit">
+              Submit
+            </button>
           </form>
         </>
       )}

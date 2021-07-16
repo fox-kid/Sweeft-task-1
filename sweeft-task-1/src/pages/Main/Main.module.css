@@ -36,6 +36,7 @@
 }
 
 .btn_primary {
+  font-size: 1rem;
   width: fit-content;
   padding: 0.5rem 1rem;
   border-radius: 0.6rem;
